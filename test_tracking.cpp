@@ -72,15 +72,14 @@ void TrackTest::dropPointTest()
 }
 void TrackTest::addPointTest()
 {
-//    std::vector<bool> isActive;
-//    isActive.push_back(false);
-//    isActive.push_back(true);
-//    isActive.push_back(true);
+//    bool active[] = {false, true, true};
+//    std::vector<bool> isActive(active, active + sizeof(active) / sizeof(bool));
+
 //    int backgroundPointsNum = 2;
 //    cv::KeyPoint point(10,10,1);
 //    cv::Mat descriptor(1, 1, CV_8UC1);
 //    descriptor.row(0).col(0) = 128;
-//    std::vector<cv::Point2f> springs;
+//    std::vector<cv::Point2f> springs;//кол-во элементов == MAX_POINTS
 //    springs.push_back(cv::Point2f(0.0, 0.0));
 //    springs.push_back(cv::Point2f(1.0,1.0));
 //    springs.push_back(cv::Point2f(-1.0,-1.0));
@@ -124,6 +123,20 @@ void TrackTest::addPointTest()
 
 //    addPoint_(point, descriptor, &isActive, backgroundPointsNum, &springs, center, featuresDatabase, selectedFeatures,
 //              squareForm, angles, activeKeypoints, weigthsDatabase);
+
+//    bool active0[] = {true, true, true};
+//    std::vector<bool> isActive0(active0, active0 + sizeof(active0) / sizeof(bool));
+//    std::vector<cv::Point2f> springs0;
+//    springs.push_back(cv::Point2f(-90.0, -90.0));
+//    springs.push_back(cv::Point2f(1.0,1.0));
+//    springs.push_back(cv::Point2f(-1.0,-1.0));
+//    springs.push_back(cv::Point2f(0.0, 0.0));
+//    springs.push_back(cv::Point2f(0.0, 0.0));
+//    springs.push_back(cv::Point2f(0.0, 0.0));
+
+
+
+
 //    unsigned char a[5], b[3];
 //    for(int i = 0; i < 5; i++) {
 //        a[i] = (unsigned char)featuresDatabase.at<unsigned char> (i, 0);
@@ -145,9 +158,14 @@ void TrackTest::deletePointsTest()
 //    cv::Mat featuresDatabase(2, 1, CV_8UC1);
 //    featuresDatabase.row(0).col(0) = 255;
 //    featuresDatabase.row(1).col(0) = 128;
+//    cv::Mat featuresDatabase0(2, 1, CV_8UC1);
+//    featuresDatabase.row(0).col(0) = 255;
+//    featuresDatabase.row(1).col(0) = 0;
 
 //    cv::Mat selectedFeatures(1, 1, CV_8UC1);
 //    selectedFeatures.row(0).col(0) = 128;
+//    cv::Mat selectedFeatures(1, 1, CV_8UC1);
+//    selectedFeatures.row(0).col(0) = 0;
 
 //    std::vector<std::pair<cv::KeyPoint,int> > activeKeypoints;
 
@@ -157,13 +175,11 @@ void TrackTest::deletePointsTest()
 //    deletePoints(backgroundPointsNum, selectedFeatures, featuresDatabase,
 //                       weigthsDatabase, activeKeypoints,
 //                       &isActive, hasResult);
-//    unsigned char a[2], b[1];
-//    for(int i = 0; i < 2; i++) {
-//        a[i] = (unsigned char)featuresDatabase.at<unsigned char> (i, 0);
-//    }
-//    for(int i = 0; i < 1; i++) {
-//        b[i] = (unsigned char)selectedFeatures.at<unsigned char> (i, 0);
-//    }
+
+//    QVERIFY(hasResult);
+//    QCOMPARE(weigthsDatabase->at(0),-1);
+//    QVERIFY(compareMat(featuresDatabase, featuresDatabase0));
+//    QVERIFY(compareMat(selectedFeatures, selectedFeatures0));
 }
 void TrackTest::getActivePointsTest()
 {
